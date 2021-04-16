@@ -1,0 +1,93 @@
+.nav-wrapper{
+      font-family: 'Poppins', sans-serif;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80px;
+      position: fixed;
+      top: 0;
+      right: 0;
+      background-color: rgba(255, 255, 255, 0.616);
+}
+.nav-logo{
+      font-family: 'Satisfy', cursive;
+      cursor: pointer;
+      font-size: 24px;
+}
+.nav-container{
+      width: 90%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+.nav-links-container{
+      list-style: none;
+      display: flex;
+      width: 33%;
+      justify-content: space-between;
+      align-items: center;
+}
+.nav-links{
+      cursor: pointer;
+      font-weight: 900;
+}
+.burger{
+      width: 30px;
+      height: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      display: none;
+      cursor: pointer;
+      transition: 0.2s ease;
+}
+.burger-line{
+      height: 3px;
+      width: 100%;
+      background-color: black;
+      transition: 0.4s ease;
+}
+.line1{
+      transform: rotate(45deg);
+      transform-origin: left;
+} 
+.line2{
+      visibility: hidden;
+}
+.line3{
+      transform: rotate(-45deg);
+      transform-origin: left;
+}
+@media only screen and (max-width: 12750px){
+      .nav-links-container{
+            width: 50%;
+      }
+}
+@media only screen and (max-width: 900px){
+      .nav-links-container{
+            flex-direction: column;
+            position: fixed;
+            top: 80px;
+            right: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            z-index: 1;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+      }
+      .nav-links{
+            height: 25%;
+            display: flex;
+            align-items: center; 
+            justify-content: center;
+            width: 100%;
+      }
+      .burger{
+            display: flex;
+      }
+      .nav-links:hover{
+            background-color: rgb(199, 199, 199);
+      }
+}
