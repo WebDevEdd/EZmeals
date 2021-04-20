@@ -1,0 +1,13 @@
+.footer-wrapper{
+      height: 100px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.footer-title{
+      text-align: center;
+}
+.footer-details{
+      text-align: center;
+}
