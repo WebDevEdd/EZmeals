@@ -1,0 +1,64 @@
+.filters-wrapper{
+      width: 100%;
+      height: 124px;
+      background-color: rgb(63, 63, 63);
+      margin-top: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.filters-container{
+      display: flex;
+      justify-content: center;
+      width: 90%;
+      height: 100%;
+      align-items: center;
+}
+.search-form{
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      height: 66%;
+}
+#recipe-search{
+      width: 85%;
+      height: 100%;
+      border: none;
+      outline: none;
+      font-size: 16px;
+}
+.recipe-search-btn{
+      height: 100%;
+      width: 15%;
+      border: none;
+      background-color: white;
+      font-size: 18px;
+      color: gray;
+}
+.search-container{
+      display: flex;
+      height: 40px;
+      width: 300px;
+      border-radius: 32px;
+      overflow: hidden;
+}
+.filters-list{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      list-style: none;
+      width: 90%;
+}
+.filter-btn{
+      border: none;
+      background: none;
+      outline: none;
+      cursor: pointer;
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+}
+.active-filter{
+      color: rgb(109, 212, 109);
+}

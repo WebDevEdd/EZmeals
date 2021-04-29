@@ -180,7 +180,7 @@
 
 @media screen and (max-width: 650px){
       .bf-card{
-            width: 85vw;
-            min-height: calc(85vw * 1.1);
+            width: 80vw;
+            min-height: calc(80vw * 1.1);
       }
 }

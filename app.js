@@ -39,12 +39,17 @@ function homeSearchForm() {
       const searchForm = document.querySelector('.home-search-food');
       const searchSubmit = document.querySelector('.home-search-sub');
 
-      searchCover.addEventListener('click', (e) => {
-            e.preventDefault();
-            searchCover.classList.add('hide-home-search');
-            searchForm.classList.add('show-home-search');
-            searchSubmit.style.top = 0;
-      })
+      try {
+            searchCover.addEventListener('click', (e) => {
+                  e.preventDefault();
+                  searchCover.classList.add('hide-home-search');
+                  searchForm.classList.add('show-home-search');
+                  searchSubmit.style.top = 0;
+            })
+      } catch (error) {
+
+      }
+
 }
 
 homeSearchForm();
@@ -60,18 +65,19 @@ function getBreakfast() {
       })
             .then(response => response.json())
             .then(data => {
-                  const recipes = data.hits;
-                  recipes.forEach(e => {
-                        let name = e.recipe.label
-                        let calories = Math.round(e.recipe.calories);
-                        let chef = e.recipe.source;
-                        let photo = e.recipe.image;
-                        let link = e.recipe.url;
+                  try {
+                        const recipes = data.hits;
+                        recipes.forEach(e => {
+                              let name = e.recipe.label
+                              let calories = Math.round(e.recipe.calories);
+                              let chef = e.recipe.source;
+                              let photo = e.recipe.image;
+                              let link = e.recipe.url;
 
 
 
 
-                        let card = `
+                              let card = `
                         <div class="bf-card-pad">
                               <div class="bf-card">
                                     <div class="bf-card-container">
@@ -100,13 +106,41 @@ function getBreakfast() {
                         </div>
                         `;
 
-                        container.innerHTML += card;
+                              container.innerHTML += card;
 
-                  })
-                  console.log(recipes);
+                        })
+                        console.log(recipes);
+                  } catch (error) {
+
+                  }
+
             }).catch(err => {
                   console.error(err);
             });
 }
 getBreakfast();
+
+let mealTypeFilter;
+
+function recipeFilter() {
+      let filters = document.querySelectorAll('.filter-btn');
+
+      filters.forEach(btn => {
+            btn.addEventListener('click', (el) => {
+                  filters.forEach(e => {
+                        e.classList.remove('active-filter');
+                  })
+                  el.preventDefault();
+                  btn.classList.add('active-filter')
+            })
+      })
+}
+recipeFilter();
+
+console.log(mealTypeFilter);
+
+
+
+
+
 

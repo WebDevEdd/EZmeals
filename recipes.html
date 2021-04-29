@@ -12,7 +12,7 @@
       <!-- STYLES -->
       <link rel="stylesheet" href="navStyles.css">
       <link rel="stylesheet" href="main.css">
-      <link rel="stylesheet" href="home.css">
+      <link rel="stylesheet" href="recipes.css">
       <link rel="stylesheet" href="footer.css">
 
       <meta charset="UTF-8">
@@ -53,47 +53,27 @@
             </div>
       </nav>
 
-      <!-- BANNER -->
-      <div class="banner-wrapper">
-            <div class="banner-container">
-                  <h1 class="banner-text">
-                        Are you hungry?
-                  </h1>
-                  <form class="home-search-form">
-                        <button class="search-home">SEARCH FOOD</button>
-
-                        <input type="text" name="home-search-food" class="home-search-food" placeholder="search...">
-                        <button class="home-search-sub"><i class="fas fa-search"></i></button>
-                  </form>
-            </div>
-      </div>
-
-      <!-- BREAKFAST SECTION -->
-      <div class="breakfast-section">
-            <div class="bf-container">
-                  <h1 class="section-title">
-                        Check out our breakfast recipes
-                  </h1>
-                  <div class="bf-container2">
-                        <div class="breakfast-cards-container">
-
+      <!-- FILTERS SECTION -->
+      <div class="filters-wrapper">
+            <div class="filters-container">
+                  <form action="" class="search-form">
+                        <!-- SEARCH -->
+                        <div class="search-container">
+                              <button class="recipe-search-btn">
+                                    <i class="fas fa-search"></i>
+                              </button>
+                              <input type="text" name="search-input" id="recipe-search" placeholder="search">
                         </div>
-                  </div>
 
-            </div>
-      </div>
 
-      <!-- FOOTER -->
-      <div class="footer-wrapper">
-            <div class="footer-main-container">
-                  <div class="footer-title">
-                        <h2>
-                              Edgar A. Rivas
-                        </h2>
-                  </div>
-                  <div class="footer-details">
-                        <p>This website is a part of Edgar's portfolio.</p>
-                  </div>
+                        <!-- FILTERS -->
+                        <ul class="filters-list">
+                              <li class="filters"><button type="submit" class="filter-btn">Breakfast</button></li>
+                              <li class="filters"><button type="submit" class="filter-btn">Lunch</button></li>
+                              <li class="filters"><button type="submit" class="filter-btn">Dinner</button></li>
+                              <li class="filters"><button type="submit" class="filter-btn">Snack</button></li>
+                        </ul>
+                  </form>
             </div>
       </div>
       <script src="app.js"></script>
