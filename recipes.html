@@ -62,19 +62,33 @@
                               <button class="recipe-search-btn">
                                     <i class="fas fa-search"></i>
                               </button>
-                              <input type="text" name="search-input" id="recipe-search" placeholder="search">
+                              <input type="search" name="search-input" id="recipe-search" placeholder="search"
+                                    autocomplete="off">
                         </div>
 
 
                         <!-- FILTERS -->
-                        <ul class="filters-list">
-                              <li class="filters"><button type="submit" class="filter-btn">Breakfast</button></li>
-                              <li class="filters"><button type="submit" class="filter-btn">Lunch</button></li>
-                              <li class="filters"><button type="submit" class="filter-btn">Dinner</button></li>
-                              <li class="filters"><button type="submit" class="filter-btn">Snack</button></li>
-                        </ul>
+                        <div class="filters-list">
+                              <button type="submit" class="filter-btn">Breakfast</button>
+                              <button type="submit" class="filter-btn">Lunch</button>
+                              <button type="submit" class="filter-btn">Dinner</button>
+                              <button type="submit" class="filter-btn">Snack</button>
+                        </div>
                   </form>
             </div>
+      </div>
+
+      <!-- RECIPES SECTION -->
+      <div class="recipes-wrapper">
+            <div class="recipes-container">
+
+            </div>
+            <div class="load-more-container">
+                  <button class="loadMore">
+                        MORE
+                  </button>
+            </div>
+
       </div>
       <script src="app.js"></script>
 </body>

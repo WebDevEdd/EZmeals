@@ -120,24 +120,138 @@ function getBreakfast() {
 }
 getBreakfast();
 
-let mealTypeFilter;
+// ***** RECIPE PAGE SECTION ***** //
+window.onload = loadOnOpen;
+let cardContainer = document.querySelector('.recipes-container');
+let from = 0;
+let to = 30;
+//RESET FROM AND TO
+function resetLoad() {
+      from = 0;
+      to = 30;
+}
+//GET RECIPES
+function getRecipes(meal, q, from, to) {
+      let APP_ID = 'eeab0073';
+      let API_KEY = 'ea82b59d97cc29c1cb4715cafd4913c0';
+      if (!meal) {
+            fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${q}&from=${from}&to=${to}`, {
+                  "method": "GET"
+            })
+                  .then(response => response.json())
+                  .then(data => {
+                        let results = data.hits;
+                        results.forEach(e => {
+                              let recipe = e.recipe;
+                              let image = recipe.image;
+                              let name = recipe.label;
+                              let calories = Math.round(recipe.calories);
+                              let chef = recipe.source;
+                              let link = recipe.url;
 
-function recipeFilter() {
+                              makeCards(image, name, calories, chef, link);
+                        })
+
+                  }).catch(err => {
+                        console.error(err);
+                  });
+      }
+      else {
+            fetch(`https://api.edamam.com/search?app_id=${APP_ID}&app_key=${API_KEY}&q=${q}&mealType=${meal}&from=${from}&to=${to}`, {
+                  "method": "GET"
+            })
+                  .then(response => response.json())
+                  .then(data => {
+                        let results = data.hits;
+                        results.forEach(e => {
+                              let recipe = e.recipe;
+                              let image = recipe.image;
+                              let name = recipe.label;
+                              let calories = Math.round(recipe.calories);
+                              let chef = recipe.source;
+                              let link = recipe.url;
+
+                              makeCards(image, name, calories, chef, link);
+                        })
+
+                  }).catch(err => {
+                        console.error(err);
+                  });
+      }
+}
+
+function loadOnOpen() {
+      getRecipes('dinner', 'popular', from, to);
+}
+
+//RECIPE SEARCH FILTER
+function searchRecipes() {
+      let searchBar = document.getElementById('recipe-search');
+      let form = document.querySelector('.search-form');
       let filters = document.querySelectorAll('.filter-btn');
+      let appliedFilter;
+      let load = document.querySelector('.loadMore');
 
       filters.forEach(btn => {
             btn.addEventListener('click', (el) => {
                   filters.forEach(e => {
                         e.classList.remove('active-filter');
                   })
-                  el.preventDefault();
                   btn.classList.add('active-filter')
+                  appliedFilter = btn.textContent;
             })
       })
-}
-recipeFilter();
+      form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let search = searchBar.value;
+            clearSearch();
+            resetLoad();
+            getRecipes(appliedFilter, search, from, to);
+      })
 
-console.log(mealTypeFilter);
+      load.addEventListener('click', () => {
+            let search = searchBar.value;
+            to + 30;
+            from + 30;
+            getRecipes(appliedFilter, search, from, to);
+      })
+}
+searchRecipes();
+
+function makeCards(img, name, calories, chef, link) {
+      let cardContent = `
+      <div class="recipe-card">
+            <div class="recipe-card-container">
+                  <div class="card-image" style="background-image: url(${img})">
+
+                  </div>
+                  <div class="card-name-container">
+                        <h2 class="card-name">${name}</h2>
+                  </div>
+
+                  <div class="card-bottom">
+                        <div class="card-info">
+                                          <p>Calories: ${calories}</p>
+                                          <p>Designed by ${chef}</p>
+                        </div>
+                        <div class="card-link">
+                              <a class="recipe-link" href="${link} target="_blank"" >
+                                    Recipe
+                              </a>
+                        </div>
+                  </div>
+            </div>
+      </div>
+      `;
+
+      cardContainer.innerHTML += cardContent;
+}
+
+function clearSearch() {
+      cardContainer.innerHTML = '';
+}
+
+
 
 
 
