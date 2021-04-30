@@ -32,27 +32,6 @@ function navBG() {
       })
 }
 navBG();
-//HOME SEARCH FUNCTIONALITY
-function homeSearchForm() {
-      const form = document.querySelector('.home-search-form');
-      const searchCover = document.querySelector('.search-home');
-      const searchForm = document.querySelector('.home-search-food');
-      const searchSubmit = document.querySelector('.home-search-sub');
-
-      try {
-            searchCover.addEventListener('click', (e) => {
-                  e.preventDefault();
-                  searchCover.classList.add('hide-home-search');
-                  searchForm.classList.add('show-home-search');
-                  searchSubmit.style.top = 0;
-            })
-      } catch (error) {
-
-      }
-
-}
-
-homeSearchForm();
 //HOME BREAKFAST LIST
 function getBreakfast() {
       const container = document.querySelector('.breakfast-cards-container');
@@ -235,7 +214,7 @@ function makeCards(img, name, calories, chef, link) {
                                           <p>Designed by ${chef}</p>
                         </div>
                         <div class="card-link">
-                              <a class="recipe-link" href="${link} target="_blank"" >
+                              <a class="recipe-link" href=${link} target="_blank">
                                     Recipe
                               </a>
                         </div>

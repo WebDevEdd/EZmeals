@@ -149,10 +149,10 @@
       background-color: rgb(109, 212, 109);
       color: white;
       cursor: pointer;
+      margin: 16px;
 }
 .load-more-container{
       width: 100%;
       display: flex;
       justify-content: center;
-      margin: 16px;
 }
